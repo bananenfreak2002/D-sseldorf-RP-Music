@@ -1,4 +1,5 @@
-ha/*
+
+/*
 
   ██████╗░████████╗██╗░░██╗           
   ██╔══██╗╚══██╔══╝╚██╗██╔╝          
@@ -21,7 +22,7 @@ const { ButtonStyle } = require('discord.js');
 
 module.exports = {
   name: "help",
-  description: "Erhalte Informationen über Commands!",
+  description: "Get information about bot and commands.",
   permissions: "0x0000000000000800",
   options: [],
 
@@ -29,20 +30,20 @@ module.exports = {
     try {
       const musicCommandsEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
-        .setTitle('🎸 **Musik Commands**')
+        .setTitle('🎸 **Music Commands**')
         .addFields(
-          { name: '🎹 Play', value: 'Spiele einen Song' },
-          { name: '⏹️ Stop', value: 'Stoppe den Song und leave den Channel' },
-          { name: '📊 Queue', value: 'Sehen und verwalten Sie die Song-Warteschlange dieses Servers' },
-          { name: '⏭️ Skip', value: 'Überspringen Sie das aktuell wiedergegebene Lied' },
-          { name: '⏸️ Pause', value: 'Pausieren Sie das aktuell wiedergegebene Lied' },
-          { name: '▶️ Resume', value: 'Setzen Sie das aktuell pausierte Lied fort' },
-          { name: '🔁 Loop', value: 'Schalten Sie den Loop-Modus für die Warteschlange und das aktuelle Lied um' },
-          { name: '🔄 Autoplay', value: 'Aktivieren oder deaktivieren Sie die automatische Wiedergabe [zufällige Titel abspielen]' },
-          { name: '⏩ Seek', value: 'Suchen Sie nach einer bestimmten Zeit im aktuellen Lied' },
-          { name: '⏮️ Previous', value: 'Spielen Sie das vorherige Lied in der Warteschlange ab' },
-          { name: '🔀 Shuffle', value: 'Mischen Sie die Lieder in der Warteschlange' },
-          { name: '📃 playlist', value: 'Verwalten Sie die Wiedergabelisten' }
+          { name: '🎹 Play', value: 'Stream a song from a given link or text from sources' },
+          { name: '⏹️ Stop', value: 'Makes the bot stop playing music and leave the voice' },
+          { name: '📊 Queue', value: 'View and manage the song queue of this server' },
+          { name: '⏭️ Skip', value: 'Skip the current playing song' },
+          { name: '⏸️ Pause', value: 'Pause the currently playing song' },
+          { name: '▶️ Resume', value: 'Resume the current paused song' },
+          { name: '🔁 Loop', value: 'Toggle loop mode for queue and current song' },
+          { name: '🔄 Autoplay', value: 'Enable or disable autoplay [play random songs ]' },
+          { name: '⏩ Seek', value: 'Seek to a specific time in the current song' },
+          { name: '⏮️ Previous', value: 'Play the previous song in the queue' },
+          { name: '🔀 Shuffle', value: 'Shuffle the songs in queue' },
+          { name: '📃 playlist', value: 'manage the playlists' }
         )
         .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177&`); 
 
