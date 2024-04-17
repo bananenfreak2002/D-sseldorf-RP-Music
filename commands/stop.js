@@ -30,6 +30,7 @@ module.exports = {
       }
 
       queue.stop(interaction.guild.id);
+      message.guild.me.voice.channel.leave();
 
       const embed = new EmbedBuilder()
         .setColor('#f1002c')
