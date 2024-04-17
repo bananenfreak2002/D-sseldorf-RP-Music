@@ -31,7 +31,7 @@ module.exports = {
         const embed = new EmbedBuilder()
           .setColor(`#6190ff`)
           .setTitle(`Bot Latenz`)
-          .setDescription(`**Pong** : ${end - start}ms`)
+          .setDescription(`**Ping** : ${end - start}ms`)
         return interaction.editReply({ embeds: [embed] }).catch(e => { });
       }).catch(err => { })
 
