@@ -30,7 +30,6 @@ module.exports = {
       }
 
       queue.stop(interaction.guild.id);
-      connection.destroy();
 
       const embed = new EmbedBuilder()
         .setColor('#f1002c')
