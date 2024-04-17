@@ -2,17 +2,17 @@ const { EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
   name: "nowplaying",
-  description: "get info of current song.",
+  description: "Informationen zum aktuellen Song abrufen.",
   permissions: "0x0000000000000800",
   options: [],
   run: async (client, interaction) => {
     try {
 
       const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: `⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: `⚠️ Es wird keine Musik gespielt!!`, ephemeral: true }).catch(e => { })
 
       const track = queue.songs[0];
-      if (!track) return interaction.reply({ content: `⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
+      if (!track) return interaction.reply({ content: `⚠️ Es wird keine Musik gespielt!!`, ephemeral: true }).catch(e => { })
 
       const embed = new EmbedBuilder();
       embed.setColor(client.config.embedColor);
