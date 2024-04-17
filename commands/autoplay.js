@@ -19,21 +19,21 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "autoplay",
-  description: "Toggle the autoplay of the queue.",
+  description: "Schalten Sie die automatische Wiedergabe der Warteschlange um.",
   options: [],
   permissions: "0x0000000000000800",
   run: async (client, interaction) => {
     try {
       const queue = client?.player?.getQueue(interaction?.guild?.id);
       if (!queue || !queue?.playing) {
-        return interaction?.reply({ content: '⚠️ No music playing!!', ephemeral: true });
+        return interaction?.reply({ content: '⚠️ Es wird keine Musik gespielt!!', ephemeral: true });
       }
       
       queue?.toggleAutoplay();
       
       const embed = new EmbedBuilder()
         .setColor('#2f58fe')
-        .setTitle('Your Music, Your Call!!')
+        .setTitle('Ihre Musik, Ihr Ruf!!')
         .setDescription(queue?.autoplay ? '**✅ Autoplay ON**' : '**❌ Autoplay OFF**')
         
       
