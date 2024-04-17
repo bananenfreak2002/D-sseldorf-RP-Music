@@ -7,12 +7,17 @@ module.exports = {
         .setDescription('Get the discord bot to leave the vc it is currently in <>_<>'),
 
     async execute(interaction) {
+
+        const channel = interaction.options.getChannel('channel');
+
         let connection = getVoiceConnection(interaction.guild.id);
         if (connection === undefined) {
             await interaction.reply("I am not in a vc!");
             return;
         };
+    
         connection.destroy();
+
         await interaction.reply(`Successfully left ${channel}!`);
     },
 };
