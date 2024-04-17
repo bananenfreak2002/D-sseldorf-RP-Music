@@ -21,7 +21,7 @@ module.exports = {
   description: "Stoppt die Musik",
   permissions: "0x0000000000000800",
   options: [],
-  voiceChannel: true,
+  voiceChannel: false,
   run: async (client, interaction) => {
     try {
       const queue = client.player.getQueue(interaction.guild.id);
