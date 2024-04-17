@@ -58,7 +58,7 @@ module.exports = {
            { name: '🎵 Now Playing', value: 'Zeigt die Informationen zum aktuell wiedergegebenen Song an' },
           { name: '🔊 Volume', value: 'Passen Sie die Musiklautstärke an [ Hören bei hoher Lautstärke ist riskant ]' },
         ) 
-       .setImage('https://cdn.discordapp.com/attachments/1150827819547504741/1168917372267151370/standard.gif?ex=65538222&is=65410d22&hm=b4994392f44679da41fc9304eb69deaa3769e136057556deec0db69ae8d33a97&')
+       .setImage('https://cdn.discordapp.com/attachments/1108859142346645665/1230138316075044884/bananenfreakLogoV1.png?ex=66323a95&is=661fc595&hm=ba6a3353962c06844309a58507620e027e3b6327ea1eedb2572110e572c11a1b&')
       const button1 = new ButtonBuilder()
         .setLabel('YouTube')
         .setURL('https://www.youtube.com/channel/UCINzMk8pQQLhD2ol79w3JRA')
