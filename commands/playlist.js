@@ -96,7 +96,7 @@ module.exports = {
     },
     {
       name: "top",
-      description: "Most popular Albums.",
+      description: "Die beliebtesten Alben.",
       type: ApplicationCommandOptionType.Subcommand,
       options: []
     }
