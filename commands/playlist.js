@@ -3,22 +3,22 @@ const db = require('../mongoDB');
 
 module.exports = {
   name: "playlist",
-  description: "Lets you manage Album commands.",
+  description: "Ermöglicht Ihnen die Verwaltung von Albumbefehlen.",
   options: [
     {
       name: "create",
-      description: "Create an Album.",
+      description: "Erstellen Sie ein Album.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Give a name for your Album",
+          description: "Geben Sie einen Namen für Ihr Album",
           type: ApplicationCommandOptionType.String,
           required: true
         },
         {
           name: "public",
-          description: "Want to make it Public ? True 0r false",
+          description: "Möchten Sie es öffentlich machen? Richtig oder falsch",
           type: ApplicationCommandOptionType.Boolean,
           required: true
         }
@@ -26,12 +26,12 @@ module.exports = {
     },
     {
       name: "delete",
-      description: "Want to remove your Album ?",
+      description: "Möchten Sie Ihr Album entfernen ?",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write the name of your Album to delete.",
+          description: "Geben Sie den Namen Ihres Albums ein, das Sie löschen möchten.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -39,18 +39,18 @@ module.exports = {
     },
     {
       name: "add-music",
-      description: "It allows you to add songs to the Album.",
+      description: "Damit können Sie Lieder zum Album hinzufügen.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "playlist-name",
-          description: "Write an Album name.",
+          description: "Geben Sie einen Albumnamen ein.",
           type: ApplicationCommandOptionType.String,
           required: true
         },
         {
           name: "name",
-          description: "Write a song name or a song link.",
+          description: "Schreiben Sie einen Songnamen oder einen Songlink.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -58,18 +58,18 @@ module.exports = {
     },
     {
       name: "delete-music",
-      description: "It allows you to delete song from Album.",
+      description: "Damit können Sie Songs aus dem Album löschen.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "playlist-name",
-          description: "Write an Album name.",
+          description: "Geben Sie einen Albumnamen ein.",
           type: ApplicationCommandOptionType.String,
           required: true
         },
         {
           name: "name",
-          description: "Write a song name.",
+          description: "Schreiben Sie einen Songnamen.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -77,12 +77,12 @@ module.exports = {
     },
     {
       name: "list",
-      description: "Browse songs in an Album.",
+      description: "Durchsuchen Sie Songs in einem Album.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write an Album name.",
+          description: "Geben Sie einen Albumnamen ein.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -90,7 +90,7 @@ module.exports = {
     },
     {
       name: "lists",
-      description: "Browse all your Albums.",
+      description: "Durchsuchen Sie alle Ihre Alben.",
       type: ApplicationCommandOptionType.Subcommand,
       options: []
     },
