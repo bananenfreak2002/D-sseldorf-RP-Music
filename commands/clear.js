@@ -1,3 +1,4 @@
+
 /*
 
   ██████╗░████████╗██╗░░██╗           
@@ -18,7 +19,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "clear",
-  description: "Lösche die Playlist.",
+  description: "Clears the music queue.",
   permissions: "0x0000000000000800",
   options: [],
   voiceChannel: true,
@@ -27,11 +28,11 @@ module.exports = {
     
     try {
       if (!queue || !queue.playing) {
-        return interaction.reply({ content: '⚠️ Derzeit spielt keine Musik!!', ephemeral: true });
+        return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true });
       }
 
       if (!queue.songs[0]) {
-        return interaction.reply({ content: '❌ Playlist ist leer!!', ephemeral: true });
+        return interaction.reply({ content: '❌ Queue is empty!!', ephemeral: true });
       }
 
       await queue.stop(interaction.guild.id);
@@ -39,11 +40,11 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#3498db')
         .setAuthor({
-          name: 'Playlist gelöscht',
+          name: 'Cleared List',
           iconURL: 'https://cdn.discordapp.com/attachments/1156866389819281418/1157314241393598585/4618-no-slides.png?ex=65182861&is=6516d6e1&hm=dac8fed5a18e1574485e833d4c017591c50f59d161e1bde7fed5f6a92543f951&',
           url: 'https://discord.gg/FUEHs7RCqz'
         })
-        .setDescription('**Playlist gelöscht.**')
+        .setDescription('**Queue cleared! Be Ready for a new musical journey.**')
        
 
       interaction.reply({ embeds: [embed] });
