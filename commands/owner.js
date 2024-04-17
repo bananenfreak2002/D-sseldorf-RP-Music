@@ -24,7 +24,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const DiscordLink = 'https://discord.gg/duesseldorf';
+      const youtubeLink = 'https://discord.gg/duesseldorf';
       const InstagramLink = 'https://www.instagram.com/janis_w2008/';
       const { EmbedBuilder } = require('discord.js')
         const embed = new EmbedBuilder()
