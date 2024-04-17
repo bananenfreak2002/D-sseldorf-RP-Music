@@ -108,7 +108,7 @@ module.exports = {
       if (stp === "create") {
         let name = interaction.options.getString('name')
         let public = interaction.options.getBoolean('public')
-        if (!name) return interaction.reply({ content: '⚠️ Enter Album name to create!', ephemeral: true }).catch(e => { })
+        if (!name) return interaction.reply({ content: '⚠️ Geben Sie den Namen des zu erstellenden Albums ein!', ephemeral: true }).catch(e => { })
 
         const userplaylist = await db.playlist.findOne({ userID: interaction.user.id })
 
@@ -116,17 +116,17 @@ module.exports = {
         if (playlist?.length > 0) {
           for (let i = 0; i < playlist.length; i++) {
             if (playlist[i]?.playlist?.filter(p => p.name === name)?.length > 0) {
-              return interaction.reply({ content: '⚠️ Album already Exitst!', ephemeral: true }).catch(e => { })
+              return interaction.reply({ content: '⚠️ Album existiert bereits!', ephemeral: true }).catch(e => { })
             }
           }
         }
 
-        if (userplaylist?.playlist?.length >= client.config.playlistSettings.maxPlaylist) return interaction.reply({ content: '🚫 Exceeded Album limit', ephemeral: true }).catch(e => { })
+        if (userplaylist?.playlist?.length >= client.config.playlistSettings.maxPlaylist) return interaction.reply({ content: '🚫 Albumlimit überschritten', ephemeral: true }).catch(e => { })
 
         const creatingAlbumEmbed = new EmbedBuilder()
           .setColor('#0099ff')
-          .setTitle('Creating Album')
-          .setDescription(`Hey <@${interaction.member.id}>, your album is being created. Rock on! 🎸`)
+          .setTitle('Album erstellen')
+          .setDescription(`Hey <@${interaction.member.id}>, Ihr Album wird erstellt. Mach weiter! 🎸`)
           .setTimestamp();
 
         // Replying with both content and embed
@@ -155,9 +155,9 @@ module.exports = {
           .setAuthor({
             name: 'Album Created Sucessfully',
             iconURL: 'https://cdn.discordapp.com/attachments/1213421081226903552/1215554404527116288/7762-verified-blue.gif',
-            url: 'https://discord.gg/FUEHs7RCqz'
+            url: 'https://discord.gg/duesseldorf'
           })
-  .setDescription(`Hey <@${interaction.member.id}>, your album has been created successfully! 🎉`)
+  .setDescription(`Hey <@${interaction.member.id}>, Ihr Album wurde erfolgreich erstellt! 🎉`)
   .setTimestamp();
 
 // Editing the reply with both content and embed
