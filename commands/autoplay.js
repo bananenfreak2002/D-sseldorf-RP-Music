@@ -19,14 +19,14 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "autoplay",
-  description: "Toggle the autoplay of the queue.",
+  description: "Aktiviert/Deaktiviert Autoplay.",
   options: [],
   permissions: "0x0000000000000800",
   run: async (client, interaction) => {
     try {
       const queue = client?.player?.getQueue(interaction?.guild?.id);
       if (!queue || !queue?.playing) {
-        return interaction?.reply({ content: '⚠️ No music playing!!', ephemeral: true });
+        return interaction?.reply({ content: '⚠️ Derzeit spielt keine Musik!!', ephemeral: true });
       }
       
       queue?.toggleAutoplay();
@@ -34,7 +34,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#2f58fe')
         .setTitle('Your Music, Your Call!!')
-        .setDescription(queue?.autoplay ? '**✅ Autoplay ON**' : '**❌ Autoplay OFF**')
+        .setDescription(queue?.autoplay ? '**✅ Autoplay AN**' : '**❌ Autoplay AUS**')
         
       
       interaction?.reply({ embeds: [embed] });
