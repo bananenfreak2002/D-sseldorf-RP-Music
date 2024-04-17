@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "resume",
-  description: "Start paused music.",
+  description: "Musik weiterlaufen lassen.",
   permissions: "0x0000000000000800",
   options: [],
   voiceChannel: true,
@@ -12,11 +12,11 @@ module.exports = {
 
     try {
       if (!queue) {
-        return interaction.reply({ content: '⚠️ Queue is empty!!', ephemeral: true });
+        return interaction.reply({ content: '⚠️ Warteschlange ist leer!!', ephemeral: true });
       }
 
       if (!queue.paused) {
-        return interaction.reply({ content: '⚠️ No paused music!!', ephemeral: true });
+        return interaction.reply({ content: '⚠️ Keine Musik, welche pausiert wurde!!', ephemeral: true });
       }
 
       const success = queue.resume();
@@ -28,7 +28,7 @@ module.exports = {
           iconURL: 'https://cdn.discordapp.com/attachments/1156866389819281418/1157296313549983846/8929-purple-play-icon.png?ex=651817ae&is=6516c62e&hm=55fc041718da9277d1cdb13ef25ebf043d90588ee33c4bc838d9634ecfbc8e99&',
           url: 'https://discord.gg/FUEHs7RCqz'
         })
-        .setDescription(success ? '**The music springs back to life!!**' : '❌ Error: Unable to resume song')
+        .setDescription(success ? '**Die Musik wird vortgesetzt!!**' : '❌ Error: Es ist ein Fehler aufgetreten')
         
 
       return interaction.reply({ embeds: [embed] });
