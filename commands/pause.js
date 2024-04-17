@@ -18,7 +18,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "pause",
-  description: "Stops playing the currently playing music.",
+  description: "Stoppt die Wiedergabe der aktuell wiedergegebenen Musik.",
   permissions: "0x0000000000000800",
   options: [],
   voiceChannel: true,
@@ -27,7 +27,7 @@ module.exports = {
 
     try {
       if (!queue || !queue.playing) {
-        return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true });
+        return interaction.reply({ content: '⚠️ Es wird keine Musik gespielt!!', ephemeral: true });
       }
 
       const success = queue.pause();
@@ -35,11 +35,11 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#7645fe') 
         .setAuthor({
-          name: 'Song Paused',
+          name: 'Song pausiert',
           iconURL: 'https://cdn.discordapp.com/attachments/1156866389819281418/1157296313013117049/8061-purple-pause-icon.png?ex=651817ae&is=6516c62e&hm=4596c9fab9d8b66de8b5215b2750572ced352eed67440a1134550b846b5693b9&',
-          url: 'https://discord.gg/FUEHs7RCqz'
+          url: 'https://discord.gg/duesseldorf'
         })
-        .setDescription(success ? '**The music has been Paused for a moment!!**' : '❌ Command Error: Unable to pause song')
+        .setDescription(success ? '**Die Musik wurde für einen Moment angehalten!!**' : '❌ Command Error: Lied kann nicht angehalten werden')
         
 
       return interaction.reply({ embeds: [embed] });
