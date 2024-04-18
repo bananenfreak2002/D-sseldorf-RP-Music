@@ -62,7 +62,7 @@ module.exports = {
 
       let cancel = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
-          .setLabel("Cancel")
+          .setLabel("abbrechen")
           .setStyle(ButtonStyle.Danger)
           .setCustomId('cancel')
       );
