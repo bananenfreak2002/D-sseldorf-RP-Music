@@ -2,17 +2,17 @@ const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
   name: "playsong",
-  description: "Play a track.",
+  description: "Spielen Sie einen Titel ab.",
   permissions: "0x0000000000000800",
   options: [
     {
       name: "normal",
-      description: "Open music from other platforms.",
+      description: "Öffnen Sie Musik von anderen Plattformen.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write your music name.",
+          description: "Schreiben Sie Ihren Musiknamen.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -20,12 +20,12 @@ module.exports = {
     },
     {
       name: "playlist",
-      description: "Write your playlist name.",
+      description: "Geben Sie Ihren Playlist-Namen ein.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write the name of the playlist you want to create.",
+          description: "Geben Sie den Namen der Playlist ein, die Sie erstellen möchten.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -44,7 +44,7 @@ module.exports = {
       if (stp === "playlist") {
         let playlistw = interaction.options.getString('name')
         let playlist = await db?.playlist?.find().catch(e => { })
-        if (!playlist?.length > 0) return interaction.reply({ content: `There is no playlist. ❌`, ephemeral: true }).catch(e => { })
+        if (!playlist?.length > 0) return interaction.reply({ content: `Es gibt keine Playlist. ❌`, ephemeral: true }).catch(e => { })
 
         let arr = 0
         for (let i = 0; i < playlist.length; i++) {
@@ -55,16 +55,16 @@ module.exports = {
 
             if (playlist_owner_filter !== interaction.member.id) {
               if (playlist_public_filter === false) {
-                return interaction.reply({ content: `You don't have permission to play this playlist. ❌`, ephemeral: true }).catch(e => { })
+                return interaction.reply({ content: `Sie haben keine Berechtigung zum Abspielen dieser Playlist. ❌`, ephemeral: true }).catch(e => { })
               }
             }
 
             const music_filter = playlist[i]?.musics?.filter(m => m.playlist_name === playlistw)
-            if (!music_filter?.length > 0) return interaction.reply({ content: `No music with Name`, ephemeral: true }).catch(e => { })
+            if (!music_filter?.length > 0) return interaction.reply({ content: `Keine Musik mit Namen`, ephemeral: true }).catch(e => { })
                 const listembed = new EmbedBuilder()
-                .setTitle('Loading Your Album')
+                .setTitle('Laden Ihres Albums')
                 .setColor('#FF0000')
-                .setDescription('**🎸 Get ready for a musical journey!**');
+                .setDescription('**🎸 Machen Sie sich bereit für eine musikalische Reise!**');
             interaction.reply({ content : '', embeds: [listembed] }).catch(e => { })
 
             let songs = []
@@ -78,12 +78,12 @@ module.exports = {
               });
               const qembed = new EmbedBuilder()
         .setAuthor({
-        name: 'Added Album Songs to Queue',
+        name: 'Album-Songs zur Warteschlange hinzugefügt',
         iconURL: 'https://cdn.discordapp.com/attachments/1156866389819281418/1157218651179597884/1213-verified.gif', 
-        url: 'https://discord.gg/FUEHs7RCqz'
+        url: 'https://discord.gg/duesseldorf'
     })
         .setColor('#14bdff')
-        .setFooter({ text: 'Use /queue for more Information' });
+        .setFooter({ text: 'Für weitere Informationen verwenden Sie /queue' });
            
               await interaction.editReply({ content: '',embeds: [qembed] }).catch(e => {
                   console.error('Error  reply:', e);
@@ -96,7 +96,7 @@ module.exports = {
                   interaction
                 })
               } catch (e) {
-                await interaction.editReply({ content: `❌ No results found!!`, ephemeral: true }).catch(e => { })
+                await interaction.editReply({ content: `❌ keine Ergebnisse gefunden!!`, ephemeral: true }).catch(e => { })
               }
 
               playlist[i]?.playlist?.filter(p => p.name === playlistw).map(async p => {
@@ -125,7 +125,7 @@ module.exports = {
           } else {
             arr++
             if (arr === playlist.length) {
-              return interaction.reply({ content: `There is no Album ❌`, ephemeral: true }).catch(e => { })
+              return interaction.reply({ content: `Es gibt kein Album ❌`, ephemeral: true }).catch(e => { })
             }
           }
         }
@@ -134,12 +134,12 @@ module.exports = {
       if (stp === "normal") {
   const name = interaction.options.getString('name');
   if (!name) {
-    return interaction.reply({ content: '▶️ Give Text or link', ephemeral: true }).catch(e => {});
+    return interaction.reply({ content: '▶️ Geben Sie Text oder Link ein', ephemeral: true }).catch(e => {});
   }
 
   const embed = new EmbedBuilder()
     .setColor('#FF0000')
-    .setDescription('**🎸 Get ready for a musical journey!**');
+    .setDescription('**🎸 Machen Sie sich bereit für eine musikalische Reise!**');
 
   await interaction.reply({ embeds: [embed] }).catch(e => {});
 
@@ -152,7 +152,7 @@ module.exports = {
   } catch (e) {
     const errorEmbed = new EmbedBuilder()
       .setColor('#FF0000')
-      .setDescription('❌ No results found!!');
+      .setDescription('❌ keine Ergebnisse gefunden!!');
 
     await interaction.editReply({ embeds: [errorEmbed], ephemeral: true }).catch(e => {});
   }
