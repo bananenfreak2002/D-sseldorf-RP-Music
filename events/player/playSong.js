@@ -11,7 +11,7 @@ module.exports = async (client, queue, song) => {
         iconURL: 'https://cdn.discordapp.com/attachments/1140841446228897932/1144671132948103208/giphy.gif', 
         url: 'https://discord.gg/duesseldorf'
     })
-    .setDescription(`\n ‎ \n▶️ **Details :** **${song?.name}**\n▶️ **Geniesse die ultimative Experience. ** \n▶️ **Wenn der Link die Wiedergabe unterbricht, bitte erneut versuchen.**`)
+    .setDescription(`\n ‎ \n▶️ **Details :** **${song?.name}**\n▶️ **Geniesse die ultimative Experience. ** \n▶️ **Wenn der Bot die Wiedergabe unterbricht, bitte erneut versuchen.**`)
 .setImage(queue.songs[0].thumbnail)
     .setColor('#FF0000')
     .setFooter({ text: 'Für mehr Informationen: bananenfreak2002 - Janis auf Discord kontaktieren.' });
