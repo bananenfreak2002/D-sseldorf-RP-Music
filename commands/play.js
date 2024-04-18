@@ -83,7 +83,8 @@ module.exports = {
         collector.on('collect', async (button) => {
           switch (button.customId) {
             case 'cancel': {
-              embed.setDescription(`Search interrupted`);
+              embed.setDescription(`Suche abgebrochen`);
+              embed.setTitle(`Abbruch`);
               await interaction.editReply({ embeds: [embed], components: [] }).catch(e => { });
               return collector.stop();
             }
