@@ -2,11 +2,11 @@ const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
   name: "seek",
-  description: "jump to the timestamp",
+  description: "Springe zum Zeitstempel",
   permissions: "0x0000000000000800",
   options: [{
-    name: "time",
-    description: "enter timestamp",
+    name: "Zeit",
+    description: "Geben Sie den Zeitstempel ein",
     type: ApplicationCommandOptionType.String,
     required: true
   }],
@@ -15,13 +15,13 @@ module.exports = {
     try {
 
       const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: `⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: `⚠️ Es wird keine Musik gespielt!!`, ephemeral: true }).catch(e => { })
 
       let position = getSeconds(interaction.options.getString("position"))
       if(isNaN(position)) return interaction.reply({ content: `usage : 2:40`, ephemeral: true }).catch(e => { })
 
       queue.seek(position)
-      interaction.reply({ content: `▶️ **Taking you on a time-travel journey to the specified timestamp.**`}).catch(e => { })
+      interaction.reply({ content: `▶️ **Nimmt Sie mit auf eine Zeitreise zum angegebenen Zeitstempel.**`}).catch(e => { })
 
     } catch (e) {
       console.error(e);
