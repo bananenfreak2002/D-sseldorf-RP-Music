@@ -47,7 +47,7 @@ module.exports = {
 
     },
 
-    maxVol: 150,
+    maxVol: 100,
 
   }
 }
