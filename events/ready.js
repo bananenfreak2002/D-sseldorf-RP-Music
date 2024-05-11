@@ -22,9 +22,9 @@ console.log('\x1b[36m%s\x1b[0m', '|    🚀 Commands Distracted!');
 console.log('\x1b[32m%s\x1b[0m', `|    🌼 Logged in as ${client.user.username}`);
 
 setInterval(() => client.user.setActivity({ 
-  name: `ERROR I Update V1.2 BETA`, 
+  name: `Update V1.3 BETA`, 
   type: ActivityType.Listening }), 10000);
-  client.user.setStatus('dnd');
+  client.user.setStatus('online');
 client.errorLog = config.errorLog
 } else {
 console.log('\x1b[36m%s\x1b[0m', `|    🍔 Error MongoDB!`)
